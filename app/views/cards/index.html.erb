@@ -1,0 +1,31 @@
+<%
+  suits = ["clubs", "diamonds", "hearts", "spades"]
+  characters = ["2", "3", "4", "5", "6", "7", "8", "9","10", "jack", "queen", "king", "ace"]
+  cards = []
+  for suit in suits
+    for character in characters
+      cards.push(character+"_of_"+suit)
+    end
+  end
+  hands = cards.sample(5)
+%>
+
+<h1>Poker time!</h1>
+
+<form action="/cards">
+  <label for="number">Number of cards to be dealt:</label>
+  <input type="number">
+</form>
+
+<p>
+  <img src="/images/cards/<%= hands[0] %>.svg">
+  <img src="/images/cards/<%= hands[1] %>.svg">
+  <img src="/images/cards/<%= hands[2] %>.svg">
+  <img src="/images/cards/<%= hands[3] %>.svg">
+  <img src="/images/cards/<%= hands[4] %>.svg">
+</p>
+
+<p>
+<a href="/cards">Deal Again!</a>
+</p>
+
